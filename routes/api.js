@@ -1,24 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
+const Team = require('../models/team');
+
 router.get('/team', function(req, res){
 	console.log('GET request');
 
 	res.send({type: 'GET'});
 });
 
-router.post('/team', function(req, res){
+router.post('/team', function(req, res, next){
+
 	console.log(req.body);
 
-
-	res.send({
-        type: 'POST',
-        name: req.body.name,
-        ranking: req.body.ranking,
-        win: req.body.win,
-        lost: req.body.lost,
-        accuracy: req.body.accuracy
-    });
+	res.send({type: 'POST'});
+	
 });
 
 router.put('/team/:id', function(req, res){
